@@ -1,0 +1,19 @@
+
+body {
+    font-size: 18px;
+    font-family: monospace;
+    padding: 10px;
+}
+
+button {
+    font-size: 15px;
+    font-family: monospace;
+}
+
+.footer {
+    padding: 10px;
+    bottom: 0;
+    position: absolute;
+    height: 2.5rem;  
+    text-align: center;
+}
