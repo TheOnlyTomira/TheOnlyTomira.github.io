@@ -1,12 +1,17 @@
 var gold = 0
 var cursors = 0
 var cursorCost = 15
+var pans = 0
+var panCost = 125
 
 function update() {
     cursorCost = Math.ceil(15 * Math.pow(1.15,cursors));
+    panCost = Math.ceil(125 * Math.pow(1.15,pans));   
     document.getElementById("gold").innerHTML = gold;
     document.getElementById('cursors').innerHTML = cursors;  
     document.getElementById('cursorCost').innerHTML = cursorCost;
+    document.getElementById('pans').innerHTML = pans;  
+    document.getElementById('panCost').innerHTML = panCost; 
 }
 
 function mineGold(increment){
@@ -24,10 +29,21 @@ function buyCursor(){
     update(); 
 };
 
+function buyPan(){
+    var panCost = Math.ceil(125 * Math.pow(1.15,pans));   
+    if(gold >= panCost){                                  
+        pans++;                                
+    	gold -= panCost;                          
+        update();
+    };
+    update(); 
+};
+
 function save() {
     var save = {
         gold: gold,
-        cursors: cursors
+        cursors: cursors,
+        pans: pans
     }
 
     localStorage.setItem("save",JSON.stringify(save))
@@ -38,12 +54,13 @@ function load() {
 
     if (typeof savegame.gold !== "undefined") gold = savegame.gold;
     if (typeof savegame.cursors !== "undefined") cursors = savegame.cursors;
+    if (typeof savegame.pans !== "undefined") pans = savegame.pans;
     update();
 }
 
 window.setInterval(function(){
 
-	mineGold(cursors);
+	mineGold(cursors + (pans * 3));
 
 	
 }, 1000);
