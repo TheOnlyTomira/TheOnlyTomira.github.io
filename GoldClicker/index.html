@@ -8,11 +8,20 @@
     <title>Gold Clicker</title>
 </head>
 <body>
-    <button type="button" onclick="save()">Save</button><button type="button" onclick="load()">Load</button><br><br>
+    <button type="button" class="button" onclick="save()">Save</button> <button type="button" class="button" onclick="load()">Load</button><br><br>
     Gold: <span id="gold">0</span><br/>
-    <button type="button" onclick="mineGold(1)">Mine Gold</button><br/><br/>
-    <button type="button" onclick="buyCursor()">Buy Cursor</button><br/>
+    <button type="button" class="button" onclick="mineGold(1)">Mine Gold</button><br/><br/>
+    <button type="button" class="button" onclick="buyCursor()">Buy Cursor</button><br/>
     Cursors: <span id="cursors">0</span><br/>
-    Cost: <span id="cursorCost">15</span>
+    Cost: <span id="cursorCost">15</span><br><br>
+
+    <button type="button" class="button" onclick="buyPan()">Buy Gold Pan</button><br/>
+    Gold Pans: <span id="pans">0</span><br/>
+    Cost: <span id="panCost">125</span>
+
+
+    <footer class="footer">
+        <p>Pre-Alpha 0.0.1</p>
+    </footer>
 </body>
 </html>
